@@ -52,6 +52,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     });
     String? token = await getToken();
     final String alamat = _alamatController.text;
+    String namaKota = getNamaKotaByKode(kotaPilihan);
     if (token != null) {
       final request = await http.post(
         Uri.parse("http://api.masadji.my.id/order"),
@@ -64,7 +65,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             'kode_barang': widget.kodeBarang,
             'sebanyak': widget.sebanyak,
             'alamat': alamat,
-            'kota': "",
+            'kota': namaKota,
             'ongkir': ongkir
           },
         ),
@@ -139,6 +140,16 @@ class _CheckoutPageState extends State<CheckoutPage> {
         print(e);
       }
     }
+  }
+
+  String getNamaKotaByKode(String kode) {
+    String? namaKota;
+    kotaKalimantanTengah.forEach((kota) {
+      if (kota['code'] == kode) {
+        namaKota = kota['name'];
+      }
+    });
+    return namaKota ?? 'Kode tidak ditemukan';
   }
 
   List<Map<String, String>> kotaKalimantanTengah = [
