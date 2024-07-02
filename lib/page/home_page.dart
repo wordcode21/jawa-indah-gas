@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:jawa_indah_gas/models/product.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'dart:html' as html;
 import 'package:jawa_indah_gas/components/product_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -109,7 +110,9 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          html.window.open('https://wa.me/089636337709', '_block');
+        },
         backgroundColor: Colors.green,
         child: const Icon(Icons.chat_rounded),
       ),
