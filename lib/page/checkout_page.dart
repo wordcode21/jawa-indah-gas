@@ -63,7 +63,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
         body: jsonEncode(
           <String, dynamic>{
             'kode_barang': widget.kodeBarang,
-            'sebanyak': widget.sebanyak,
+            'sebanyak': sebanyak,
             'alamat': alamat,
             'kota': namaKota,
             'ongkir': ongkir
