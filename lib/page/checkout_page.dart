@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jawa_indah_gas/components/navbar.dart';
+import 'package:jawa_indah_gas/components/navbar2.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'dart:html' as html;
@@ -55,7 +55,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     String namaKota = getNamaKotaByKode(kotaPilihan);
     if (token != null) {
       final request = await http.post(
-        Uri.parse("http://api.masadji.my.id/order"),
+        Uri.parse("https://api.masadji.my.id/order"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
@@ -95,7 +95,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     if (token != null) {
       try {
         final request =
-            await http.post(Uri.parse("http://api.masadji.my.id/cek-ongkir"),
+            await http.post(Uri.parse("https://api.masadji.my.id/cek-ongkir"),
                 headers: <String, String>{
                   'Content-Type': 'application/json; charset=UTF-8',
                   'Authorization': 'Bearer $token',
@@ -125,7 +125,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     if (kodeKeranjang != null) {
       try {
         final request = await http.delete(
-          Uri.parse("http://api.masadji.my.id/keranjang"),
+          Uri.parse("https://api.masadji.my.id/keranjang"),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'Authorization': 'Bearer $token',
@@ -171,7 +171,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Navbar(),
+      appBar: Navbar2(),
       body: _isLoading
           ? const Center(
               child: CircularProgressIndicator(),

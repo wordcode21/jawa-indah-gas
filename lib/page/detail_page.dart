@@ -57,7 +57,7 @@ class _DetailPageState extends State<DetailPage> {
     } else {
       try {
         final request = await http.post(
-          Uri.parse("http://api.masadji.my.id/keranjang"),
+          Uri.parse("https://api.masadji.my.id/keranjang"),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'Authorization': 'Bearer $token',

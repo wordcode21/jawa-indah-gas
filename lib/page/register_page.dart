@@ -134,7 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
       );
       try {
         final response = await http.post(
-          Uri.parse("http://api.masadji.my.id/register"),
+          Uri.parse("https://api.masadji.my.id/register"),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           },

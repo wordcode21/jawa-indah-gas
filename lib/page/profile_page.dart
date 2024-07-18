@@ -58,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
     if (token != null) {
       try {
         final response = await http.get(
-          Uri.parse("http://api.masadji.my.id/profile"),
+          Uri.parse("https://api.masadji.my.id/profile"),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'Authorization': 'Bearer $token',
@@ -99,7 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 file.extension == 'png')) {
           var request = http.MultipartRequest(
             'PATCH',
-            Uri.parse('http://api.masadji.my.id/profile'),
+            Uri.parse('https://api.masadji.my.id/profile'),
           );
           request.headers['Authorization'] = 'Bearer $token';
           request.files.add(http.MultipartFile.fromBytes(

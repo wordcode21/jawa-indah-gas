@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('token');
     final response = await http.get(
-        Uri.parse('http://api.masadji.my.id/products'),
+        Uri.parse('https://api.masadji.my.id/products'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',

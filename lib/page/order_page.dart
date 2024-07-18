@@ -41,7 +41,7 @@ class _OrderPageState extends State<OrderPage> {
     String? token = await getToken();
     try {
       final response = await http.get(
-        Uri.parse("http://api.masadji.my.id/order"),
+        Uri.parse("https://api.masadji.my.id/order"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',

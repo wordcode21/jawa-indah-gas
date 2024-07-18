@@ -42,7 +42,7 @@ class _CartPageState extends State<CartPage> {
     String? token = await getToken();
     try {
       final response = await http.get(
-        Uri.parse("http://api.masadji.my.id/keranjang"),
+        Uri.parse("https://api.masadji.my.id/keranjang"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
@@ -75,7 +75,7 @@ class _CartPageState extends State<CartPage> {
     String? token = await getToken();
     try {
       final request = await http.delete(
-        Uri.parse("http://api.masadji.my.id/keranjang"),
+        Uri.parse("https://api.masadji.my.id/keranjang"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
@@ -174,7 +174,6 @@ class _CartPageState extends State<CartPage> {
                             border: TableBorder.all(),
                             columns: const [
                               DataColumn(label: Text('Kode Keranjang')),
-                              DataColumn(label: Text('Kode Barang')),
                               DataColumn(label: Text('Nama Barang')),
                               DataColumn(label: Text('Sebanyak')),
                               DataColumn(label: Text('Harga')),
@@ -186,7 +185,6 @@ class _CartPageState extends State<CartPage> {
                                 .map(
                                   (item) => DataRow(cells: [
                                     DataCell(Text(item['kode_keranjang'])),
-                                    DataCell(Text(item['kode_barang'])),
                                     DataCell(Text(item['nama_barang'])),
                                     DataCell(Text(item['sebanyak'].toString())),
                                     DataCell(Text(item['harga'].toString())),
